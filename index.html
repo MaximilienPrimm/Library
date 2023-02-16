@@ -1,0 +1,85 @@
+<!DOCTYPE html>
+<html lang="fr">
+  <head>
+    <meta charset="UTF-8" />
+    <!-- <meta http-equiv="X-UA-Compatible" content="IE=edge" /> -->
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+    <link rel="stylesheet" href="style.css" />
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Poppins:ital,wght@0,400;0,500;0,600;0,700;1,400;1,500;1,600;1,700&display=swap"
+      rel="stylesheet"
+    />
+    <link rel="shortcut icon" href="favicon.png" />
+    <script
+      src="https://kit.fontawesome.com/4c536a6bd5.js"
+      crossorigin="anonymous"
+    ></script>
+
+    <link
+      type="text/css"
+      rel="stylesheet"
+      href="https://www.gstatic.com/firebasejs/ui/6.0.1/firebase-ui-auth.css"
+    />
+    <script src="script.js" defer></script>
+  </head>
+  <body>
+    <header class="header">
+      <div class="container">
+        <h1>Library</h1>
+        <nav>
+          <div class="lds-dual-ring" id="loadingRing"></div>
+          <div class="logged-out" id="loggedOut">
+            <button class="btn" id="logInBtn">Log in</button>
+          </div>
+          <div class="logged-in" id="loggedIn">
+            <button class="btn" id="accountBtn">Account</button>
+            <button class="btn" id="logOutBtn">Log out</button>
+          </div>
+        </nav>
+      </div>
+    </header>
+    <main class="main container">
+      <button class="btn btn-add" id="addBookModal">Open Modal</button>
+      <div class="books-grid" id="booksGrid"></div>
+    </main>
+    <footer class="footer"></footer>
+    <div class="modal" id="formModal">
+      <form class="newBookForm" id="bookForm">
+        <input class="input" type="text" placeholder="Title" id="bookTitle" />
+        <input class="input" type="text" placeholder="Author" id="bookAuthor" />
+        <input class="input" type="number" placeholder="Pages" id="bookPages" />
+        <div class="is-read">
+          <label for="is-read">Have you read it ?</label
+          ><input
+            class="isRead"
+            type="checkbox"
+            id="bookIsReaded"
+            value="false"
+          />
+        </div>
+        <input type="submit" value="Create" id="createBook" />
+      </form>
+    </div>
+    <div class="modal" id="accountModal"></div>
+    <div class="overlay" id="overlay"></div>
+    <script src="https://www.gstatic.com/firebasejs/8.7.1/firebase-app.js"></script>
+    <script src="https://www.gstatic.com/firebasejs/8.7.1/firebase-auth.js"></script>
+    <script src="https://www.gstatic.com/firebasejs/8.7.1/firebase-firestore.js"></script>
+    <script>
+      const firebaseConfig = {
+        apiKey: "AIzaSyABGusop_K3NOnq6UTXSlbR9SoriSCg-Jk",
+        authDomain: "library-241fd.firebaseapp.com",
+        projectId: "library-241fd",
+        storageBucket: "library-241fd.appspot.com",
+        messagingSenderId: "567922173320",
+        appId: "1:567922173320:web:8f5ddc2e6e83c11f94863d",
+      };
+
+      // Initialize Firebase
+      firebase.initializeApp(firebaseConfig);
+    </script>
+  </body>
+</html>
